@@ -6,6 +6,8 @@ output_directory_root=/glade/u/home/kheyblom/scratch/icesm_data/processed/mon
 variable_csv_vanilla=/glade/u/home/kheyblom/work/projects/water_isotope_tracer_run_analysis/preprocess_data/assets/variables_to_preprocess_vanilla.csv
 variable_csv_tag=/glade/u/home/kheyblom/work/projects/water_isotope_tracer_run_analysis/preprocess_data/assets/variables_to_preprocess_tag.csv
 
+OVERWRITE_PROCESSED_DATA=false
+
 # raw experiment names
 exps_in=("1850-iso-gridtags" \
          "historical-iso-r1" \
@@ -120,7 +122,7 @@ for ((i=1; i<=${#exps_out[@]}; i++)); do
         cd $in_dir
         for var in "${vars[@]}"; do
                 output_file="${out_dir}/${exps_out[i-1]}.${var}.mon.nc"
-                if [[ -f "$output_file" ]]; then
+                if [[ -f "$output_file" && "$OVERWRITE_PROCESSED_DATA" == "false" ]]; then
                         echo "  SKIPPING: $var (file already exists)"
                 else
                         echo "  EXTRACTING: $var"
