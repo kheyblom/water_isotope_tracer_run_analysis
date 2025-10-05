@@ -1,7 +1,11 @@
 #!/bin/bash 
 
+module load nco
+
+run_frequency=day
+
 input_directory_root=/glade/u/home/kheyblom/scratch/icesm_data/raw
-output_directory_root=/glade/u/home/kheyblom/scratch/icesm_data/processed/mon
+output_directory_root=/glade/u/home/kheyblom/scratch/icesm_data/processed/${run_frequency}
 
 variable_csv_vanilla=/glade/u/home/kheyblom/work/projects/water_isotope_tracer_run_analysis/preprocess_data/assets/variables_to_preprocess_vanilla.csv
 variable_csv_tag=/glade/u/home/kheyblom/work/projects/water_isotope_tracer_run_analysis/preprocess_data/assets/variables_to_preprocess_tag.csv
@@ -118,15 +122,22 @@ for ((i=1; i<=${#exps_out[@]}; i++)); do
         
         out_dir=${output_directory_root}/${exps_out[i-1]}
         mkdir -p $out_dir
-        in_dir=${input_directory_root}/${exps_in[i-1]}/cam/mon
+        in_dir=${input_directory_root}/${exps_in[i-1]}/cam/${run_frequency}
         cd $in_dir
         for var in "${vars[@]}"; do
-                output_file="${out_dir}/${exps_out[i-1]}.${var}.mon.nc"
+                output_file="${out_dir}/${exps_out[i-1]}.${var}.${run_frequency}.nc"
                 if [[ -f "$output_file" && "$OVERWRITE_PROCESSED_DATA" == "false" ]]; then
                         echo "  SKIPPING: $var (file already exists)"
                 else
                         echo "  EXTRACTING: $var"
-                        ncrcat -O -v $var ${exps_in[i-1]}.cam.h0.*.nc $output_file
+                        if [ "$run_frequency" == "mon" ]; then
+                                ncrcat -O -v $var ${exps_in[i-1]}.cam.h0.*.nc $output_file
+                        elif [ "$run_frequency" == "day" ]; then
+                                ncrcat -O -v $var ${exps_in[i-1]}.cam.h1.*.nc $output_file
+                        else
+                                echo "  INVALID RUN FREQUENCY: $run_frequency"
+                                exit 1
+                        fi
                 fi
         done
 done
