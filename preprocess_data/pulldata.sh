@@ -2,13 +2,14 @@
 
 module load nco
 
-run_frequency=day
+# run_frequency: mon or day
+run_frequency=mon
 
 input_directory_root=/glade/u/home/kheyblom/scratch/icesm_data/raw
 output_directory_root=/glade/u/home/kheyblom/scratch/icesm_data/processed/${run_frequency}
 
-variable_csv_vanilla=/glade/u/home/kheyblom/work/projects/water_isotope_tracer_run_analysis/preprocess_data/assets/variables_to_preprocess_vanilla.csv
-variable_csv_tag=/glade/u/home/kheyblom/work/projects/water_isotope_tracer_run_analysis/preprocess_data/assets/variables_to_preprocess_tag.csv
+variable_csv_vanilla=/glade/u/home/kheyblom/work/projects/water_isotope_tracer_run_analysis/preprocess_data/assets/variables_to_preprocess_vanilla_month.csv
+variable_csv_tag=/glade/u/home/kheyblom/work/projects/water_isotope_tracer_run_analysis/preprocess_data/assets/variables_to_preprocess_tag_month.csv
 
 OVERWRITE_PROCESSED_DATA=false
 
@@ -69,6 +70,40 @@ exps_use_tags=(true \
                true \
                true)
 
+# Function to check if output file should be processed
+check_output_file() {
+    local output_file=$1
+    local var=$2
+    
+    if [[ -f "$output_file" && "$OVERWRITE_PROCESSED_DATA" == "false" ]]; then
+        echo "  SKIPPING: $var (file already exists)"
+        return 1
+    else
+        echo "  EXTRACTING: $var"
+        return 0
+    fi
+}
+
+# Function to extract unique years from raw files
+extract_unique_years() {
+    local exp_name=$1
+    local years=()
+    
+    for file in ${exp_name}.cam.h1.*.nc; do
+        if [[ -f "$file" ]]; then
+            # Extract YYYY from filename pattern: exp.cam.h1.YYYY-MM-DD-00000.nc
+            year=$(echo "$file" | sed -n 's/.*\.cam\.h1\.\([0-9]\{4\}\)-[0-9]\{2\}-[0-9]\{2\}-00000\.nc/\1/p')
+            if [[ -n "$year" ]]; then
+                years+=("$year")
+            fi
+        fi
+    done
+    
+    # Get unique years and sort them
+    unique_years=($(printf '%s\n' "${years[@]}" | sort -u))
+    echo "${unique_years[@]}"
+}
+
 # Function to build variables array for an experiment
 build_vars_for_experiment() {
     local use_tags=$1
@@ -125,19 +160,24 @@ for ((i=1; i<=${#exps_out[@]}; i++)); do
         in_dir=${input_directory_root}/${exps_in[i-1]}/cam/${run_frequency}
         cd $in_dir
         for var in "${vars[@]}"; do
-                output_file="${out_dir}/${exps_out[i-1]}.${var}.${run_frequency}.nc"
-                if [[ -f "$output_file" && "$OVERWRITE_PROCESSED_DATA" == "false" ]]; then
-                        echo "  SKIPPING: $var (file already exists)"
-                else
-                        echo "  EXTRACTING: $var"
-                        if [ "$run_frequency" == "mon" ]; then
+                if [ "$run_frequency" == "mon" ]; then
+                        output_file="${out_dir}/${exps_out[i-1]}.${var}.${run_frequency}.nc"
+                        if check_output_file "$output_file" "$var"; then
                                 ncrcat -O -v $var ${exps_in[i-1]}.cam.h0.*.nc $output_file
-                        elif [ "$run_frequency" == "day" ]; then
-                                ncrcat -O -v $var ${exps_in[i-1]}.cam.h1.*.nc $output_file
-                        else
-                                echo "  INVALID RUN FREQUENCY: $run_frequency"
-                                exit 1
                         fi
+                elif [ "$run_frequency" == "day" ]; then
+                        # Extract unique YYYY values from files in $in_dir
+                        unique_years=($(extract_unique_years ${exps_in[i-1]}))
+                        for year in "${unique_years[@]}"; do
+                                output_file="${out_dir}/${exps_out[i-1]}.${var}.${run_frequency}.${year}.nc"
+                                if check_output_file "$output_file" "$var"; then
+                                        echo "ncrcat -O -v $var ${exps_in[i-1]}.cam.h1.${year}-*.nc $output_file"
+                                        # ncrcat -O -v $var ${exps_in[i-1]}.cam.h1.${year}-*.nc $output_file
+                                fi
+                        done
+                else
+                        echo "  INVALID RUN FREQUENCY: $run_frequency"
+                        exit 1
                 fi
         done
 done
