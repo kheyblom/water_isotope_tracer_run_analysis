@@ -21,69 +21,69 @@ fi
 OVERWRITE_PROCESSED_DATA=false
 
 # Number of parallel ncrcat processes to run simultaneously
-MAX_PARALLEL_PROCESSES=4
+MAX_PARALLEL_PROCESSES=8
 
 # raw experiment names
 exps_in=(
         "1850-iso-gridtags" \
-        # "historical-iso-r1" \
-        # "historical-iso-r2" \
-        # "historical-iso-r4" \
-        # "historical-iso-r4-tags" \
-        # "historical-iso-r4-tags_b" \
-        # "historical-iso-r5" \
-        # "historical-iso-r5-tags" \
-        # "historical-iso-r5-tags_b" \
-        # "rcp85_r1b" \
-        # "rcp85_r2" \
-        # "rcp85_r4" \
-        # "rcp85_r4-tags_b" \
-        # "rcp85_r4-tags_c" \
-        # "rcp85_r5" \
-        # "rcp85_r5-tags_b" \
-        # "rcp85_r5-tags_c"
+        "historical-iso-r1" \
+        "historical-iso-r2" \
+        "historical-iso-r4" \
+        "historical-iso-r4-tags" \
+        "historical-iso-r4-tags_b" \
+        "historical-iso-r5" \
+        "historical-iso-r5-tags" \
+        "historical-iso-r5-tags_b" \
+        "rcp85_r1b" \
+        "rcp85_r2" \
+        "rcp85_r4" \
+        "rcp85_r4-tags_b" \
+        "rcp85_r4-tags_c" \
+        "rcp85_r5" \
+        "rcp85_r5-tags_b" \
+        "rcp85_r5-tags_c"
         )
 
 # processed experiment names
 exps_out=(
         "iso-piControl-tag" \
-        # "iso-historical_r1" \
-        # "iso-historical_r2" \
-        # "iso-historical_r4" \
-        # "iso-historical_r4-tag-a" \
-        # "iso-historical_r4-tag-b" \
-        # "iso-historical_r5" \
-        # "iso-historical_r5-tag-a" \
-        # "iso-historical_r5-tag-b" \
-        # "iso-rcp85_r1" \
-        # "iso-rcp85_r2" \
-        # "iso-rcp85_r4" \
-        # "iso-rcp85_r4-tag-b" \
-        # "iso-rcp85_r4-tag-c" \
-        # "iso-rcp85_r5" \
-        # "iso-rcp85_r5-tag-b" \
-        # "iso-rcp85_r5-tag-c"
+        "iso-historical_r1" \
+        "iso-historical_r2" \
+        "iso-historical_r4" \
+        "iso-historical_r4-tag-a" \
+        "iso-historical_r4-tag-b" \
+        "iso-historical_r5" \
+        "iso-historical_r5-tag-a" \
+        "iso-historical_r5-tag-b" \
+        "iso-rcp85_r1" \
+        "iso-rcp85_r2" \
+        "iso-rcp85_r4" \
+        "iso-rcp85_r4-tag-b" \
+        "iso-rcp85_r4-tag-c" \
+        "iso-rcp85_r5" \
+        "iso-rcp85_r5-tag-b" \
+        "iso-rcp85_r5-tag-c"
         )
 
 # define which experiments should use tag variables (true/false for each experiment)
 exps_use_tags=(
         true \
-        # false \
-        # false \
-        # false \
-        # true \
-        # true \
-        # false \
-        # true \
-        # true \
-        # false \
-        # false \
-        # false \
-        # true \
-        # true \
-        # false \
-        # true \
-        # true
+        false \
+        false \
+        false \
+        true \
+        true \
+        false \
+        true \
+        true \
+        false \
+        false \
+        false \
+        true \
+        true \
+        false \
+        true \
+        true
         )
 
 # Function to check if output file should be processed
