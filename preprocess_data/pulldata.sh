@@ -20,6 +20,9 @@ fi
 
 OVERWRITE_PROCESSED_DATA=false
 
+# Number of parallel ncrcat processes to run simultaneously
+MAX_PARALLEL_PROCESSES=4
+
 # raw experiment names
 exps_in=(
         "1850-iso-gridtags" \
@@ -163,19 +166,43 @@ for ((i=1; i<=${#exps_out[@]}; i++)); do
 
         out_dir=${output_directory_root}/${exps_out[i-1]}
         mkdir -p $out_dir
-        for var in "${vars[@]}"; do
-                output_file="${out_dir}/${exps_out[i-1]}.${var}.${run_frequency}.nc"
+        
+        # Function to process a single variable
+        process_variable() {
+                local var=$1
+                local exp_in=$2
+                local exp_out=$3
+                local freq=$4
+                local out_dir=$5
+                local script_dir=$6
+                
+                output_file="${out_dir}/${exp_out}.${var}.${freq}.nc"
                 if check_output_file "$output_file" "$var"; then
                         echo "  EXTRACTING: $var"
-                        if [ "$run_frequency" == "mon" ]; then
-                                ncrcat -O -v $var ${exps_in[i-1]}.cam.h0.*.nc $output_file 2>${script_dir}/nco_errors.log
-                        elif [ "$run_frequency" == "day" ]; then
-                                ncrcat -O -v $var ${exps_in[i-1]}.cam.h1.*.nc $output_file 2>${script_dir}/nco_errors.log
+                        if [ "$freq" == "mon" ]; then
+                                ncrcat -O -v $var ${exp_in}.cam.h0.*.nc $output_file 2>${script_dir}/nco_errors.log
+                        elif [ "$freq" == "day" ]; then
+                                ncrcat -O -v $var ${exp_in}.cam.h1.*.nc $output_file 2>${script_dir}/nco_errors.log
                         fi
+                        echo "  COMPLETED: $var"
                 else
                         echo "  SKIPPING: $var (file already exists)"
                 fi
-        done
+        }
+        
+        # Export the function and variables for parallel execution
+        export -f process_variable
+        export -f check_output_file
+        export OVERWRITE_PROCESSED_DATA
+        export run_frequency
+        export script_dir
+        export exps_in
+        export exps_out
+        export out_dir
+        export i
+        
+        # Run variables in parallel with job control
+        printf '%s\n' "${vars[@]}" | xargs -P $MAX_PARALLEL_PROCESSES -I {} bash -c 'process_variable "$@"' _ {} ${exps_in[i-1]} ${exps_out[i-1]} $run_frequency $out_dir $script_dir
 done
 echo "COMPLETE"
 echo
