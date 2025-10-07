@@ -6,13 +6,16 @@ echo $$ > pulldata.pid
 module load nco
 echo "NCO module loaded"
 
-# run_frequency: mon or day
-run_frequency=day
+# Load configuration
+if [ -f "pulldata.conf" ]; then
+    echo "Loading configuration from pulldata.conf"
+    source pulldata.conf
+else
+    echo "ERROR: pulldata.conf not found!"
+    exit 1
+fi
 
-input_directory_root=/glade/u/home/kheyblom/scratch/icesm_data/raw
-output_directory_root=/glade/u/home/kheyblom/scratch/icesm_data/processed/${run_frequency}
-
-variable_csv_tag=/glade/u/home/kheyblom/work/projects/water_isotope_tracer_run_analysis/preprocess_data/assets/variables_to_preprocess_tag.csv
+# Set up variable CSV file based on run frequency
 if [ "$run_frequency" == "mon" ]; then
         variable_csv_vanilla=/glade/u/home/kheyblom/work/projects/water_isotope_tracer_run_analysis/preprocess_data/assets/variables_to_preprocess_vanilla_month.csv
 elif [ "$run_frequency" == "day" ]; then
@@ -21,11 +24,6 @@ else
         echo "INVALID RUN FREQUENCY: $run_frequency"
         exit 1
 fi
-
-OVERWRITE_PROCESSED_DATA=false
-
-# Number of parallel ncrcat processes to run simultaneously
-MAX_PARALLEL_PROCESSES=8
 
 # Simple cleanup function to remove PID file and temp files on exit
 cleanup() {
@@ -39,69 +37,6 @@ cleanup() {
 
 # Set up signal handlers
 trap cleanup EXIT
-
-# raw experiment names
-exps_in=(
-        "1850-iso-gridtags" \
-        "historical-iso-r1" \
-        "historical-iso-r2" \
-        "historical-iso-r4" \
-        # "historical-iso-r4-tags" \
-        # "historical-iso-r4-tags_b" \
-        # "historical-iso-r5" \
-        # "historical-iso-r5-tags" \
-        # "historical-iso-r5-tags_b" \
-        # "rcp85_r1b" \
-        # "rcp85_r2" \
-        # "rcp85_r4" \
-        # "rcp85_r4-tags_b" \
-        # "rcp85_r4-tags_c" \
-        # "rcp85_r5" \
-        # "rcp85_r5-tags_b" \
-        # "rcp85_r5-tags_c"
-        )
-
-# processed experiment names
-exps_out=(
-        "iso-piControl-tag" \
-        "iso-historical_r1" \
-        "iso-historical_r2" \
-        "iso-historical_r4" \
-        # "iso-historical_r4-tag-a" \
-        # "iso-historical_r4-tag-b" \
-        # "iso-historical_r5" \
-        # "iso-historical_r5-tag-a" \
-        # "iso-historical_r5-tag-b" \
-        # "iso-rcp85_r1" \
-        # "iso-rcp85_r2" \
-        # "iso-rcp85_r4" \
-        # "iso-rcp85_r4-tag-b" \
-        # "iso-rcp85_r4-tag-c" \
-        # "iso-rcp85_r5" \
-        # "iso-rcp85_r5-tag-b" \
-        # "iso-rcp85_r5-tag-c"
-        )
-
-# define which experiments should use tag variables (true/false for each experiment)
-exps_use_tags=(
-        true \
-        false \
-        false \
-        false \
-        # true \
-        # true \
-        # false \
-        # true \
-        # true \
-        # false \
-        # false \
-        # false \
-        # true \
-        # true \
-        # false \
-        # true \
-        # true
-        )
 
 # Function to check if output file should be processed
 check_output_file() {
