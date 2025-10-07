@@ -2,6 +2,32 @@
 
 module load nco
 
+# Function to cleanup background processes
+cleanup() {
+    echo "Received signal, cleaning up background processes..."
+    
+    # Get current user to ensure we only kill our own processes
+    local current_user=$(whoami)
+    
+    # Kill all background jobs in this shell
+    jobs -p | xargs -r kill 2>/dev/null
+    
+    # Kill any remaining ncrcat processes that might be running (only for current user)
+    pkill -u "$current_user" -f "ncrcat.*cam\.h[01]\." 2>/dev/null
+    
+    # Kill any xargs processes that might be running (only for current user)
+    pkill -u "$current_user" -f "xargs.*process_variable" 2>/dev/null
+    
+    # Kill any bash processes running our function (only for current user)
+    pkill -u "$current_user" -f "bash.*process_variable" 2>/dev/null
+    
+    echo "Cleanup complete"
+    exit 1
+}
+
+# Set up signal handlers
+trap cleanup SIGINT SIGTERM EXIT
+
 # run_frequency: mon or day
 run_frequency=day
 
@@ -98,6 +124,29 @@ check_output_file() {
     fi
 }
 
+# Function to process a single variable
+process_variable() {
+    local var=$1
+    local exp_in=$2
+    local exp_out=$3
+    local freq=$4
+    local out_dir=$5
+    local script_dir=$6
+    
+    output_file="${out_dir}/${exp_out}.${var}.${freq}.nc"
+    if check_output_file "$output_file" "$var"; then
+        echo "  EXTRACTING: $var"
+        if [ "$freq" == "mon" ]; then
+            ncrcat -O -v $var ${exp_in}.cam.h0.*.nc $output_file 2>${script_dir}/nco_errors.log
+        elif [ "$freq" == "day" ]; then
+            ncrcat -O -v $var ${exp_in}.cam.h1.*.nc $output_file 2>${script_dir}/nco_errors.log
+        fi
+        echo "  COMPLETED: $var"
+    else
+        echo "  SKIPPING: $var (file already exists)"
+    fi
+}
+
 # Function to build variables array for an experiment
 build_vars_for_experiment() {
     local use_tags=$1
@@ -166,29 +215,6 @@ for ((i=1; i<=${#exps_out[@]}; i++)); do
 
         out_dir=${output_directory_root}/${exps_out[i-1]}
         mkdir -p $out_dir
-        
-        # Function to process a single variable
-        process_variable() {
-                local var=$1
-                local exp_in=$2
-                local exp_out=$3
-                local freq=$4
-                local out_dir=$5
-                local script_dir=$6
-                
-                output_file="${out_dir}/${exp_out}.${var}.${freq}.nc"
-                if check_output_file "$output_file" "$var"; then
-                        echo "  EXTRACTING: $var"
-                        if [ "$freq" == "mon" ]; then
-                                ncrcat -O -v $var ${exp_in}.cam.h0.*.nc $output_file 2>${script_dir}/nco_errors.log
-                        elif [ "$freq" == "day" ]; then
-                                ncrcat -O -v $var ${exp_in}.cam.h1.*.nc $output_file 2>${script_dir}/nco_errors.log
-                        fi
-                        echo "  COMPLETED: $var"
-                else
-                        echo "  SKIPPING: $var (file already exists)"
-                fi
-        }
         
         # Export the function and variables for parallel execution
         export -f process_variable
