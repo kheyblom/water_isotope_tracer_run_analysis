@@ -3,72 +3,85 @@
 module load nco
 
 # run_frequency: mon or day
-run_frequency=mon
+run_frequency=day
 
 input_directory_root=/glade/u/home/kheyblom/scratch/icesm_data/raw
 output_directory_root=/glade/u/home/kheyblom/scratch/icesm_data/processed/${run_frequency}
 
-variable_csv_vanilla=/glade/u/home/kheyblom/work/projects/water_isotope_tracer_run_analysis/preprocess_data/assets/variables_to_preprocess_vanilla_month.csv
-variable_csv_tag=/glade/u/home/kheyblom/work/projects/water_isotope_tracer_run_analysis/preprocess_data/assets/variables_to_preprocess_tag_month.csv
+variable_csv_tag=/glade/u/home/kheyblom/work/projects/water_isotope_tracer_run_analysis/preprocess_data/assets/variables_to_preprocess_tag.csv
+if [ "$run_frequency" == "mon" ]; then
+        variable_csv_vanilla=/glade/u/home/kheyblom/work/projects/water_isotope_tracer_run_analysis/preprocess_data/assets/variables_to_preprocess_vanilla_month.csv
+elif [ "$run_frequency" == "day" ]; then
+        variable_csv_vanilla=/glade/u/home/kheyblom/work/projects/water_isotope_tracer_run_analysis/preprocess_data/assets/variables_to_preprocess_vanilla_day.csv
+else
+        echo "INVALID RUN FREQUENCY: $run_frequency"
+        exit 1
+fi
 
 OVERWRITE_PROCESSED_DATA=false
 
 # raw experiment names
-exps_in=("1850-iso-gridtags" \
-         "historical-iso-r1" \
-         "historical-iso-r2" \
-         "historical-iso-r4" \
-         "historical-iso-r4-tags" \
-         "historical-iso-r4-tags_b" \
-         "historical-iso-r5" \
-         "historical-iso-r5-tags" \
-         "historical-iso-r5-tags_b" \
-         "rcp85_r1b" \
-         "rcp85_r2" \
-         "rcp85_r4" \
-         "rcp85_r4-tags_b" \
-         "rcp85_r4-tags_c" \
-         "rcp85_r5" \
-         "rcp85_r5-tags_b" \
-         "rcp85_r5-tags_c")
+exps_in=(
+        "1850-iso-gridtags" \
+        # "historical-iso-r1" \
+        # "historical-iso-r2" \
+        # "historical-iso-r4" \
+        # "historical-iso-r4-tags" \
+        # "historical-iso-r4-tags_b" \
+        # "historical-iso-r5" \
+        # "historical-iso-r5-tags" \
+        # "historical-iso-r5-tags_b" \
+        # "rcp85_r1b" \
+        # "rcp85_r2" \
+        # "rcp85_r4" \
+        # "rcp85_r4-tags_b" \
+        # "rcp85_r4-tags_c" \
+        # "rcp85_r5" \
+        # "rcp85_r5-tags_b" \
+        # "rcp85_r5-tags_c"
+        )
 
 # processed experiment names
-exps_out=("iso-piControl-tag" \
-          "iso-historical_r1" \
-          "iso-historical_r2" \
-          "iso-historical_r4" \
-          "iso-historical_r4-tag-a" \
-          "iso-historical_r4-tag-b" \
-          "iso-historical_r5" \
-          "iso-historical_r5-tag-a" \
-          "iso-historical_r5-tag-b" \
-          "iso-rcp85_r1" \
-          "iso-rcp85_r2" \
-          "iso-rcp85_r4" \
-          "iso-rcp85_r4-tag-b" \
-          "iso-rcp85_r4-tag-c" \
-          "iso-rcp85_r5" \
-          "iso-rcp85_r5-tag-b" \
-          "iso-rcp85_r5-tag-c")
+exps_out=(
+        "iso-piControl-tag" \
+        # "iso-historical_r1" \
+        # "iso-historical_r2" \
+        # "iso-historical_r4" \
+        # "iso-historical_r4-tag-a" \
+        # "iso-historical_r4-tag-b" \
+        # "iso-historical_r5" \
+        # "iso-historical_r5-tag-a" \
+        # "iso-historical_r5-tag-b" \
+        # "iso-rcp85_r1" \
+        # "iso-rcp85_r2" \
+        # "iso-rcp85_r4" \
+        # "iso-rcp85_r4-tag-b" \
+        # "iso-rcp85_r4-tag-c" \
+        # "iso-rcp85_r5" \
+        # "iso-rcp85_r5-tag-b" \
+        # "iso-rcp85_r5-tag-c"
+        )
 
 # define which experiments should use tag variables (true/false for each experiment)
-exps_use_tags=(true \
-               false \
-               false \
-               false \
-               true \
-               true \
-               false \
-               true \
-               true \
-               false \
-               false \
-               false \
-               true \
-               true \
-               false \
-               true \
-               true)
+exps_use_tags=(
+        true \
+        # false \
+        # false \
+        # false \
+        # true \
+        # true \
+        # false \
+        # true \
+        # true \
+        # false \
+        # false \
+        # false \
+        # true \
+        # true \
+        # false \
+        # true \
+        # true
+        )
 
 # Function to check if output file should be processed
 check_output_file() {
@@ -76,32 +89,10 @@ check_output_file() {
     local var=$2
     
     if [[ -f "$output_file" && "$OVERWRITE_PROCESSED_DATA" == "false" ]]; then
-        echo "  SKIPPING: $var (file already exists)"
         return 1
     else
-        echo "  EXTRACTING: $var"
         return 0
     fi
-}
-
-# Function to extract unique years from raw files
-extract_unique_years() {
-    local exp_name=$1
-    local years=()
-    
-    for file in ${exp_name}.cam.h1.*.nc; do
-        if [[ -f "$file" ]]; then
-            # Extract YYYY from filename pattern: exp.cam.h1.YYYY-MM-DD-00000.nc
-            year=$(echo "$file" | sed -n 's/.*\.cam\.h1\.\([0-9]\{4\}\)-[0-9]\{2\}-[0-9]\{2\}-00000\.nc/\1/p')
-            if [[ -n "$year" ]]; then
-                years+=("$year")
-            fi
-        fi
-    done
-    
-    # Get unique years and sort them
-    unique_years=($(printf '%s\n' "${years[@]}" | sort -u))
-    echo "${unique_years[@]}"
 }
 
 # Function to build variables array for an experiment
@@ -109,13 +100,24 @@ build_vars_for_experiment() {
     local use_tags=$1
     local vars=()
     
-    # Always add vanilla variables
-    while IFS= read -r var || [[ -n "$var" ]]; do
+    # Parse vanilla CSV file with two columns: variable_name,classification
+    while IFS=',' read -r var_name classification || [[ -n "$var_name" ]]; do
         # Skip empty lines
-        [[ -z "$var" ]] && continue
+        [[ -z "$var_name" ]] && continue
         # Strip carriage return characters (Windows line endings)
-        var="${var%$'\r'}"
-        vars+=("$var")
+        var_name="${var_name%$'\r'}"
+        classification="${classification%$'\r'}"
+        
+        # Always add variables with "both" classification
+        if [[ "$classification" == "both" ]]; then
+            vars+=("$var_name")
+        # Add variables with "tag" classification if use_tags is true
+        elif $use_tags && [[ "$classification" == "tag" ]]; then
+            vars+=("$var_name")
+        # Add variables with "no_tag" classification if use_tags is false
+        elif ! $use_tags && [[ "$classification" == "no_tag" ]]; then
+            vars+=("$var_name")
+        fi
     done < $variable_csv_vanilla
     
     # Add tag variables if requested
@@ -155,29 +157,23 @@ for ((i=1; i<=${#exps_out[@]}; i++)); do
         vars=($(build_vars_for_experiment ${exps_use_tags[i-1]}))
         echo "  Total variables: ${#vars[@]}"
         
+        in_dir=${input_directory_root}/${exps_in[i-1]}/cam/${run_frequency}
+        script_dir=$(pwd)
+        cd $in_dir
+
         out_dir=${output_directory_root}/${exps_out[i-1]}
         mkdir -p $out_dir
-        in_dir=${input_directory_root}/${exps_in[i-1]}/cam/${run_frequency}
-        cd $in_dir
         for var in "${vars[@]}"; do
-                if [ "$run_frequency" == "mon" ]; then
-                        output_file="${out_dir}/${exps_out[i-1]}.${var}.${run_frequency}.nc"
-                        if check_output_file "$output_file" "$var"; then
-                                ncrcat -O -v $var ${exps_in[i-1]}.cam.h0.*.nc $output_file
+                output_file="${out_dir}/${exps_out[i-1]}.${var}.${run_frequency}.nc"
+                if check_output_file "$output_file" "$var"; then
+                        echo "  EXTRACTING: $var"
+                        if [ "$run_frequency" == "mon" ]; then
+                                ncrcat -O -v $var ${exps_in[i-1]}.cam.h0.*.nc $output_file 2>${script_dir}/nco_errors.log
+                        elif [ "$run_frequency" == "day" ]; then
+                                ncrcat -O -v $var ${exps_in[i-1]}.cam.h1.*.nc $output_file 2>${script_dir}/nco_errors.log
                         fi
-                elif [ "$run_frequency" == "day" ]; then
-                        # Extract unique YYYY values from files in $in_dir
-                        unique_years=($(extract_unique_years ${exps_in[i-1]}))
-                        for year in "${unique_years[@]}"; do
-                                output_file="${out_dir}/${exps_out[i-1]}.${var}.${run_frequency}.${year}.nc"
-                                if check_output_file "$output_file" "$var"; then
-                                        echo "ncrcat -O -v $var ${exps_in[i-1]}.cam.h1.${year}-*.nc $output_file"
-                                        # ncrcat -O -v $var ${exps_in[i-1]}.cam.h1.${year}-*.nc $output_file
-                                fi
-                        done
                 else
-                        echo "  INVALID RUN FREQUENCY: $run_frequency"
-                        exit 1
+                        echo "  SKIPPING: $var (file already exists)"
                 fi
         done
 done
