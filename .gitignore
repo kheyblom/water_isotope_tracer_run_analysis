@@ -6,3 +6,4 @@ Thumbs.db
 venv/
 *.out
 *.log
+*.pid
