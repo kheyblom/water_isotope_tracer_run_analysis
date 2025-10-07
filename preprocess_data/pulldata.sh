@@ -1,32 +1,10 @@
 #!/bin/bash 
 
+echo "Script started at $(date)"
+echo "Main script PID: $$"
+echo $$ > pulldata.pid
 module load nco
-
-# Function to cleanup background processes
-cleanup() {
-    echo "Received signal, cleaning up background processes..."
-    
-    # Get current user to ensure we only kill our own processes
-    local current_user=$(whoami)
-    
-    # Kill all background jobs in this shell
-    jobs -p | xargs -r kill 2>/dev/null
-    
-    # Kill any remaining ncrcat processes that might be running (only for current user)
-    pkill -u "$current_user" -f "ncrcat.*cam\.h[01]\." 2>/dev/null
-    
-    # Kill any xargs processes that might be running (only for current user)
-    pkill -u "$current_user" -f "xargs.*process_variable" 2>/dev/null
-    
-    # Kill any bash processes running our function (only for current user)
-    pkill -u "$current_user" -f "bash.*process_variable" 2>/dev/null
-    
-    echo "Cleanup complete"
-    exit 1
-}
-
-# Set up signal handlers
-trap cleanup SIGINT SIGTERM EXIT
+echo "NCO module loaded"
 
 # run_frequency: mon or day
 run_frequency=day
@@ -49,25 +27,38 @@ OVERWRITE_PROCESSED_DATA=false
 # Number of parallel ncrcat processes to run simultaneously
 MAX_PARALLEL_PROCESSES=8
 
+# Simple cleanup function to remove PID file and temp files on exit
+cleanup() {
+    rm -f pulldata.pid
+    
+    # Clean up any ncrcat temporary files in the output directory
+    if [ -n "$output_directory_root" ]; then
+        find "$output_directory_root" -name "*.ncrcat.tmp" -delete 2>/dev/null
+    fi
+}
+
+# Set up signal handlers
+trap cleanup EXIT
+
 # raw experiment names
 exps_in=(
         "1850-iso-gridtags" \
         "historical-iso-r1" \
         "historical-iso-r2" \
         "historical-iso-r4" \
-        "historical-iso-r4-tags" \
-        "historical-iso-r4-tags_b" \
-        "historical-iso-r5" \
-        "historical-iso-r5-tags" \
-        "historical-iso-r5-tags_b" \
-        "rcp85_r1b" \
-        "rcp85_r2" \
-        "rcp85_r4" \
-        "rcp85_r4-tags_b" \
-        "rcp85_r4-tags_c" \
-        "rcp85_r5" \
-        "rcp85_r5-tags_b" \
-        "rcp85_r5-tags_c"
+        # "historical-iso-r4-tags" \
+        # "historical-iso-r4-tags_b" \
+        # "historical-iso-r5" \
+        # "historical-iso-r5-tags" \
+        # "historical-iso-r5-tags_b" \
+        # "rcp85_r1b" \
+        # "rcp85_r2" \
+        # "rcp85_r4" \
+        # "rcp85_r4-tags_b" \
+        # "rcp85_r4-tags_c" \
+        # "rcp85_r5" \
+        # "rcp85_r5-tags_b" \
+        # "rcp85_r5-tags_c"
         )
 
 # processed experiment names
@@ -76,19 +67,19 @@ exps_out=(
         "iso-historical_r1" \
         "iso-historical_r2" \
         "iso-historical_r4" \
-        "iso-historical_r4-tag-a" \
-        "iso-historical_r4-tag-b" \
-        "iso-historical_r5" \
-        "iso-historical_r5-tag-a" \
-        "iso-historical_r5-tag-b" \
-        "iso-rcp85_r1" \
-        "iso-rcp85_r2" \
-        "iso-rcp85_r4" \
-        "iso-rcp85_r4-tag-b" \
-        "iso-rcp85_r4-tag-c" \
-        "iso-rcp85_r5" \
-        "iso-rcp85_r5-tag-b" \
-        "iso-rcp85_r5-tag-c"
+        # "iso-historical_r4-tag-a" \
+        # "iso-historical_r4-tag-b" \
+        # "iso-historical_r5" \
+        # "iso-historical_r5-tag-a" \
+        # "iso-historical_r5-tag-b" \
+        # "iso-rcp85_r1" \
+        # "iso-rcp85_r2" \
+        # "iso-rcp85_r4" \
+        # "iso-rcp85_r4-tag-b" \
+        # "iso-rcp85_r4-tag-c" \
+        # "iso-rcp85_r5" \
+        # "iso-rcp85_r5-tag-b" \
+        # "iso-rcp85_r5-tag-c"
         )
 
 # define which experiments should use tag variables (true/false for each experiment)
@@ -97,19 +88,19 @@ exps_use_tags=(
         false \
         false \
         false \
-        true \
-        true \
-        false \
-        true \
-        true \
-        false \
-        false \
-        false \
-        true \
-        true \
-        false \
-        true \
-        true
+        # true \
+        # true \
+        # false \
+        # true \
+        # true \
+        # false \
+        # false \
+        # false \
+        # true \
+        # true \
+        # false \
+        # true \
+        # true
         )
 
 # Function to check if output file should be processed
@@ -228,7 +219,11 @@ for ((i=1; i<=${#exps_out[@]}; i++)); do
         export i
         
         # Run variables in parallel with job control
-        printf '%s\n' "${vars[@]}" | xargs -P $MAX_PARALLEL_PROCESSES -I {} bash -c 'process_variable "$@"' _ {} ${exps_in[i-1]} ${exps_out[i-1]} $run_frequency $out_dir $script_dir
+        echo "  Starting parallel processing with $MAX_PARALLEL_PROCESSES processes..."
+        echo "  Output directory: $out_dir"
+        echo
+        printf '%s\n' "${vars[@]}" | xargs -P $MAX_PARALLEL_PROCESSES -I {} bash -c "process_variable '{}' '${exps_in[i-1]}' '${exps_out[i-1]}' '$run_frequency' '$out_dir' '$script_dir'"
+        echo "  Completed processing for experiment: ${exps_in[i-1]}"
 done
 echo "COMPLETE"
 echo
