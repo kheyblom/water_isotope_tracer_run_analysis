@@ -1,6 +1,8 @@
 #!/bin/bash 
 
 echo "Script started at $(date)"
+echo "Hostname: $(hostname)"
+echo $(hostname) > pulldata.hostname
 echo "Main script PID: $$"
 echo $$ > pulldata.pid
 module load nco
@@ -28,6 +30,7 @@ fi
 # Simple cleanup function to remove PID file and temp files on exit
 cleanup() {
     rm -f pulldata.pid
+    rm -f pulldata.hostname
     
     # Clean up any ncrcat temporary files in the output directory
     if [ -n "$output_directory_root" ]; then
@@ -129,6 +132,7 @@ build_vars_for_experiment() {
 echo
 for ((i=1; i<=${#exps_out[@]}; i++)); do
         echo "EXPERIMENT: "${exps_in[i-1]}
+        echo
         echo "  Using tag variables: ${exps_use_tags[i-1]}"
         
         # Build variables array for this experiment
@@ -159,6 +163,7 @@ for ((i=1; i<=${#exps_out[@]}; i++)); do
         echo
         printf '%s\n' "${vars[@]}" | xargs -P $MAX_PARALLEL_PROCESSES -I {} bash -c "process_variable '{}' '${exps_in[i-1]}' '${exps_out[i-1]}' '$run_frequency' '$out_dir' '$script_dir'"
         echo "  Completed processing for experiment: ${exps_in[i-1]}"
+        echo
 done
 echo "COMPLETE"
 echo

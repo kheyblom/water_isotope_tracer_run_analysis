@@ -11,9 +11,27 @@ if [ ! -f "pulldata.pid" ]; then
     exit 1
 fi
 
-# Read the main script PID
+# Check if hostname file exists
+if [ ! -f "pulldata.hostname" ]; then
+    echo "No pulldata.hostname file found. Cannot determine which node to connect to."
+    exit 1
+fi
+
+# Read the main script PID and hostname
 MAIN_PID=$(cat pulldata.pid)
+TARGET_HOSTNAME=$(cat pulldata.hostname)
+CURRENT_HOSTNAME=$(hostname)
+
 echo "Main script PID: $MAIN_PID"
+echo "Target hostname: $TARGET_HOSTNAME"
+echo "Current hostname: $CURRENT_HOSTNAME"
+
+# Check if we need to SSH to a different node
+if [ "$TARGET_HOSTNAME" != "$CURRENT_HOSTNAME" ]; then
+    echo "Script is running on a different node. SSHing to $TARGET_HOSTNAME..."
+    ssh "$TARGET_HOSTNAME" "cd $(pwd) && $0"
+    exit $?
+fi
 
 # Get current user
 CURRENT_USER=$(whoami)
@@ -49,8 +67,9 @@ pkill -9 -u "$CURRENT_USER" -f "ncrcat.*cam\.h[01]\." 2>/dev/null
 pkill -9 -u "$CURRENT_USER" -f "xargs.*process_variable" 2>/dev/null
 pkill -9 -u "$CURRENT_USER" -f "bash.*process_variable" 2>/dev/null
 
-# Remove PID file
+# Remove PID and hostname files
 rm -f pulldata.pid
+rm -f pulldata.hostname
 
 # Clean up any ncrcat temporary files in output directories
 echo "Cleaning up temporary files..."
