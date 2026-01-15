@@ -1,0 +1,380 @@
+variable name,long name,CF convention,dimensions,output frequency
+AEROD_v,Total Aerosol Optical Depth in visible band,,"[lat, lon]",[month]
+ANRAIN,Average rain number conc,,"[lat, lon, lev]",[month]
+ANSNOW,Average snow number conc,,"[lat, lon, lev]",[month]
+AREI,Average ice effective radius,,"[lat, lon, lev]",[month]
+AREL,Average droplet effective radius,,"[lat, lon, lev]",[month]
+AWNC,Average cloud water number conc,,"[lat, lon, lev]",[month]
+AWNI,Average cloud ice number conc,,"[lat, lon, lev]",[month]
+CLDHGH,Vertically-integrated high cloud,,"[lat, lon]",[month]
+CLDLOW,Vertically-integrated low cloud,,"[lat, lon]",[month]
+CLDMED,Vertically-integrated mid-level cloud,,"[lat, lon]",[month]
+CLDTOT,Vertically-integrated total cloud,,"[lat, lon]",[month]
+CLOUD,Cloud fraction,,"[lat, lon, lev]",[month]
+DCQ,Q tendency due to moist processes,,"[lat, lon, lev]",[month]
+DTCOND,T tendency - moist processes,,"[lat, lon, lev]",[month]
+FLDS,Downwelling longwave flux at surface,,"[lat, lon]",[month]
+FLNS,Net longwave flux at surface,,"[lat, lon]",[month]
+FLNSC,Clearsky net longwave flux at surface,,"[lat, lon]",[month]
+FLNT,Net longwave flux at top of model,,"[lat, lon]",[month]
+FLNTC,Clearsky net longwave flux at top of model,,"[lat, lon]",[month]
+FLUT,Upwelling longwave flux at top of model,,"[lat, lon]",[month]
+FLUTC,Clearsky upwelling longwave flux at top of model,,"[lat, lon]",[month]
+FSDS,Downwelling solar flux at surface,,"[lat, lon]",[month]
+FSDSC,Clearsky downwelling solar flux at surface,,"[lat, lon]",[month]
+FSNS,Net solar flux at surface,,"[lat, lon]",[month]
+FSNSC,Clearsky net solar flux at surface,,"[lat, lon]",[month]
+FSNT,Net solar flux at top of model,,"[lat, lon]",[month]
+FSNTC,Clearsky net solar flux at top of model,,"[lat, lon]",[month]
+FSNTOA,Net solar flux at top of atmosphere,,"[lat, lon]",[month]
+FSNTOAC,Clearsky net solar flux at top of atmosphere,,"[lat, lon]",[month]
+FSUTOA,Upwelling solar flux at top of atmosphere,,"[lat, lon]",[month]
+H216OI,H216O isotope mmr for ICE,,"[lat, lon, lev]",[month]
+H216OL,H216O isotope mmr for LIQUID,,"[lat, lon, lev]",[month]
+H216OR,H216O isotope mmr for RAINS,,"[lat, lon, lev]",[month]
+H216OS,H216O isotope mmr for SNOWS,,"[lat, lon, lev]",[month]
+H216OV,H216O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+H216Or,H216O isotope mmr for RAINC,,"[lat, lon, lev]",[month]
+H216Os,H216O isotope mmr for SNOWC,,"[lat, lon, lev]",[month]
+H218OI,H218O isotope mmr for ICE,,"[lat, lon, lev]",[month]
+H218OL,H218O isotope mmr for LIQUID,,"[lat, lon, lev]",[month]
+H218OR,H218O isotope mmr for RAINS,,"[lat, lon, lev]",[month]
+H218OS,H218O isotope mmr for SNOWS,,"[lat, lon, lev]",[month]
+H218OV,H218O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+H218Or,H218O isotope mmr for RAINC,,"[lat, lon, lev]",[month]
+H218Os,H218O isotope mmr for SNOWC,,"[lat, lon, lev]",[month]
+H2OI,H2O isotope mmr for ICE,,"[lat, lon, lev]",[month]
+H2OL,H2O isotope mmr for LIQUID,,"[lat, lon, lev]",[month]
+H2OR,H2O isotope mmr for RAINS,,"[lat, lon, lev]",[month]
+H2OS,H2O isotope mmr for SNOWS,,"[lat, lon, lev]",[month]
+H2OV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+H2Or,H2O isotope mmr for RAINC,,"[lat, lon, lev]",[month]
+H2Os,H2O isotope mmr for SNOWC,,"[lat, lon, lev]",[month]
+HDOI,HD16O isotope mmr for ICE,,"[lat, lon, lev]",[month]
+HDOL,HD16O isotope mmr for LIQUID,,"[lat, lon, lev]",[month]
+HDOR,HD16O isotope mmr for RAINS,,"[lat, lon, lev]",[month]
+HDOS,HD16O isotope mmr for SNOWS,,"[lat, lon, lev]",[month]
+HDOV,HD16O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+HDOr,HD16O isotope mmr for RAINC,,"[lat, lon, lev]",[month]
+HDOs,HD16O isotope mmr for SNOWC,,"[lat, lon, lev]",[month]
+ICEFRAC,Fraction of sfc area covered by sea-ice,,"[lat, lon]",[month]
+LANDFRAC,Fraction of sfc area covered by land,,"[lat, lon]",[month]
+LAT05NV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LAT05SV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LAT15NV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LAT15SV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LAT25NV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LAT25SV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LAT35NV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LAT35SV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LAT45NV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LAT45SV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LAT55NV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LAT55SV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LAT65NV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LAT65SV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LAT75NV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LAT75SV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LAT85NV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LAT85SV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LHFLX,Surface latent heat flux,,"[lat, lon]",[month]
+LON05EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON105EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON115EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON125EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON135EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON145EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON155EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON15EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON165EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON175EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON185EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON195EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON205EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON215EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON225EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON235EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON245EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON255EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON25EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON265EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON275EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON285EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON295EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON305EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON315EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON325EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON335EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON345EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON355EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON35EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON45EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON55EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON65EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON75EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON85EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LON95EV,H2O isotope mmr for VAPOR,,"[lat, lon, lev]","[month, day]"
+LWCF,Longwave cloud forcing,,"[lat, lon]",[month]
+OMEGA,Vertical velocity (pressure),,"[lat, lon, lev]","[month, day]"
+PBLH,PBL height,,"[lat, lon]",[month]
+PRECC,Convective precipitation rate (liq + ice),,"[lat, lon]",[month]
+PRECL,Large-scale (stable) precipitation rate (liq + ice),,"[lat, lon]",[month]
+PRECRC_H216Or,Convective rain rate for H216Or,,"[lat, lon]",[month]
+PRECRC_H218Or,Convective rain rate for H218Or,,"[lat, lon]",[month]
+PRECRC_H2Or,Convective rain rate for H2Or,,"[lat, lon]",[month]
+PRECRC_HDOr,Convective rain rate for HDOr,,"[lat, lon]",[month]
+PRECRC_LAT05Nr,Convective rain rate for LAT05Nr,,"[lat, lon]","[month, day]"
+PRECRC_LAT05Sr,Convective rain rate for LAT05Sr,,"[lat, lon]","[month, day]"
+PRECRC_LAT15Nr,Convective rain rate for LAT15Nr,,"[lat, lon]","[month, day]"
+PRECRC_LAT15Sr,Convective rain rate for LAT15Sr,,"[lat, lon]","[month, day]"
+PRECRC_LAT25Nr,Convective rain rate for LAT25Nr,,"[lat, lon]","[month, day]"
+PRECRC_LAT25Sr,Convective rain rate for LAT25Sr,,"[lat, lon]","[month, day]"
+PRECRC_LAT35Nr,Convective rain rate for LAT35Nr,,"[lat, lon]","[month, day]"
+PRECRC_LAT35Sr,Convective rain rate for LAT35Sr,,"[lat, lon]","[month, day]"
+PRECRC_LAT45Nr,Convective rain rate for LAT45Nr,,"[lat, lon]","[month, day]"
+PRECRC_LAT45Sr,Convective rain rate for LAT45Sr,,"[lat, lon]","[month, day]"
+PRECRC_LAT55Nr,Convective rain rate for LAT55Nr,,"[lat, lon]","[month, day]"
+PRECRC_LAT55Sr,Convective rain rate for LAT55Sr,,"[lat, lon]","[month, day]"
+PRECRC_LAT65Nr,Convective rain rate for LAT65Nr,,"[lat, lon]","[month, day]"
+PRECRC_LAT65Sr,Convective rain rate for LAT65Sr,,"[lat, lon]","[month, day]"
+PRECRC_LAT75Nr,Convective rain rate for LAT75Nr,,"[lat, lon]","[month, day]"
+PRECRC_LAT75Sr,Convective rain rate for LAT75Sr,,"[lat, lon]","[month, day]"
+PRECRC_LAT85Nr,Convective rain rate for LAT85Nr,,"[lat, lon]","[month, day]"
+PRECRC_LAT85Sr,Convective rain rate for LAT85Sr,,"[lat, lon]","[month, day]"
+PRECRC_LON05Er,Convective rain rate for LON05Er,,"[lat, lon]","[month, day]"
+PRECRC_LON105Er,Convective rain rate for LON105Er,,"[lat, lon]","[month, day]"
+PRECRC_LON115Er,Convective rain rate for LON115Er,,"[lat, lon]","[month, day]"
+PRECRC_LON125Er,Convective rain rate for LON125Er,,"[lat, lon]","[month, day]"
+PRECRC_LON135Er,Convective rain rate for LON135Er,,"[lat, lon]","[month, day]"
+PRECRC_LON145Er,Convective rain rate for LON145Er,,"[lat, lon]","[month, day]"
+PRECRC_LON155Er,Convective rain rate for LON155Er,,"[lat, lon]","[month, day]"
+PRECRC_LON15Er,Convective rain rate for LON15Er,,"[lat, lon]","[month, day]"
+PRECRC_LON165Er,Convective rain rate for LON165Er,,"[lat, lon]","[month, day]"
+PRECRC_LON175Er,Convective rain rate for LON175Er,,"[lat, lon]","[month, day]"
+PRECRC_LON185Er,Convective rain rate for LON185Er,,"[lat, lon]","[month, day]"
+PRECRC_LON195Er,Convective rain rate for LON195Er,,"[lat, lon]","[month, day]"
+PRECRC_LON205Er,Convective rain rate for LON205Er,,"[lat, lon]","[month, day]"
+PRECRC_LON215Er,Convective rain rate for LON215Er,,"[lat, lon]","[month, day]"
+PRECRC_LON225Er,Convective rain rate for LON225Er,,"[lat, lon]","[month, day]"
+PRECRC_LON235Er,Convective rain rate for LON235Er,,"[lat, lon]","[month, day]"
+PRECRC_LON245Er,Convective rain rate for LON245Er,,"[lat, lon]","[month, day]"
+PRECRC_LON255Er,Convective rain rate for LON255Er,,"[lat, lon]","[month, day]"
+PRECRC_LON25Er,Convective rain rate for LON25Er,,"[lat, lon]","[month, day]"
+PRECRC_LON265Er,Convective rain rate for LON265Er,,"[lat, lon]","[month, day]"
+PRECRC_LON275Er,Convective rain rate for LON275Er,,"[lat, lon]","[month, day]"
+PRECRC_LON285Er,Convective rain rate for LON285Er,,"[lat, lon]","[month, day]"
+PRECRC_LON295Er,Convective rain rate for LON295Er,,"[lat, lon]","[month, day]"
+PRECRC_LON305Er,Convective rain rate for LON305Er,,"[lat, lon]","[month, day]"
+PRECRC_LON315Er,Convective rain rate for LON315Er,,"[lat, lon]","[month, day]"
+PRECRC_LON325Er,Convective rain rate for LON325Er,,"[lat, lon]","[month, day]"
+PRECRC_LON335Er,Convective rain rate for LON335Er,,"[lat, lon]","[month, day]"
+PRECRC_LON345Er,Convective rain rate for LON345Er,,"[lat, lon]","[month, day]"
+PRECRC_LON355Er,Convective rain rate for LON355Er,,"[lat, lon]","[month, day]"
+PRECRC_LON35Er,Convective rain rate for LON35Er,,"[lat, lon]","[month, day]"
+PRECRC_LON45Er,Convective rain rate for LON45Er,,"[lat, lon]","[month, day]"
+PRECRC_LON55Er,Convective rain rate for LON55Er,,"[lat, lon]","[month, day]"
+PRECRC_LON65Er,Convective rain rate for LON65Er,,"[lat, lon]","[month, day]"
+PRECRC_LON75Er,Convective rain rate for LON75Er,,"[lat, lon]","[month, day]"
+PRECRC_LON85Er,Convective rain rate for LON85Er,,"[lat, lon]","[month, day]"
+PRECRC_LON95Er,Convective rain rate for LON95Er,,"[lat, lon]","[month, day]"
+PRECRL_H216OR,Large-scale (stable) rain rate for H216OR,,"[lat, lon]",[month]
+PRECRL_H218OR,Large-scale (stable) rain rate for H218OR,,"[lat, lon]",[month]
+PRECRL_H2OR,Large-scale (stable) rain rate for H2OR,,"[lat, lon]",[month]
+PRECRL_HDOR,Large-scale (stable) rain rate for HDOR,,"[lat, lon]",[month]
+PRECRL_LAT05NR,Large-scale (stable) rain rate for LAT05NR,,"[lat, lon]","[month, day]"
+PRECRL_LAT05SR,Large-scale (stable) rain rate for LAT05SR,,"[lat, lon]","[month, day]"
+PRECRL_LAT15NR,Large-scale (stable) rain rate for LAT15NR,,"[lat, lon]","[month, day]"
+PRECRL_LAT15SR,Large-scale (stable) rain rate for LAT15SR,,"[lat, lon]","[month, day]"
+PRECRL_LAT25NR,Large-scale (stable) rain rate for LAT25NR,,"[lat, lon]","[month, day]"
+PRECRL_LAT25SR,Large-scale (stable) rain rate for LAT25SR,,"[lat, lon]","[month, day]"
+PRECRL_LAT35NR,Large-scale (stable) rain rate for LAT35NR,,"[lat, lon]","[month, day]"
+PRECRL_LAT35SR,Large-scale (stable) rain rate for LAT35SR,,"[lat, lon]","[month, day]"
+PRECRL_LAT45NR,Large-scale (stable) rain rate for LAT45NR,,"[lat, lon]","[month, day]"
+PRECRL_LAT45SR,Large-scale (stable) rain rate for LAT45SR,,"[lat, lon]","[month, day]"
+PRECRL_LAT55NR,Large-scale (stable) rain rate for LAT55NR,,"[lat, lon]","[month, day]"
+PRECRL_LAT55SR,Large-scale (stable) rain rate for LAT55SR,,"[lat, lon]","[month, day]"
+PRECRL_LAT65NR,Large-scale (stable) rain rate for LAT65NR,,"[lat, lon]","[month, day]"
+PRECRL_LAT65SR,Large-scale (stable) rain rate for LAT65SR,,"[lat, lon]","[month, day]"
+PRECRL_LAT75NR,Large-scale (stable) rain rate for LAT75NR,,"[lat, lon]","[month, day]"
+PRECRL_LAT75SR,Large-scale (stable) rain rate for LAT75SR,,"[lat, lon]","[month, day]"
+PRECRL_LAT85NR,Large-scale (stable) rain rate for LAT85NR,,"[lat, lon]","[month, day]"
+PRECRL_LAT85SR,Large-scale (stable) rain rate for LAT85SR,,"[lat, lon]","[month, day]"
+PRECRL_LON05ER,Large-scale (stable) rain rate for LON05ER,,"[lat, lon]","[month, day]"
+PRECRL_LON105ER,Large-scale (stable) rain rate for LON105ER,,"[lat, lon]","[month, day]"
+PRECRL_LON115ER,Large-scale (stable) rain rate for LON115ER,,"[lat, lon]","[month, day]"
+PRECRL_LON125ER,Large-scale (stable) rain rate for LON125ER,,"[lat, lon]","[month, day]"
+PRECRL_LON135ER,Large-scale (stable) rain rate for LON135ER,,"[lat, lon]","[month, day]"
+PRECRL_LON145ER,Large-scale (stable) rain rate for LON145ER,,"[lat, lon]","[month, day]"
+PRECRL_LON155ER,Large-scale (stable) rain rate for LON155ER,,"[lat, lon]","[month, day]"
+PRECRL_LON15ER,Large-scale (stable) rain rate for LON15ER,,"[lat, lon]","[month, day]"
+PRECRL_LON165ER,Large-scale (stable) rain rate for LON165ER,,"[lat, lon]","[month, day]"
+PRECRL_LON175ER,Large-scale (stable) rain rate for LON175ER,,"[lat, lon]","[month, day]"
+PRECRL_LON185ER,Large-scale (stable) rain rate for LON185ER,,"[lat, lon]","[month, day]"
+PRECRL_LON195ER,Large-scale (stable) rain rate for LON195ER,,"[lat, lon]","[month, day]"
+PRECRL_LON205ER,Large-scale (stable) rain rate for LON205ER,,"[lat, lon]","[month, day]"
+PRECRL_LON215ER,Large-scale (stable) rain rate for LON215ER,,"[lat, lon]","[month, day]"
+PRECRL_LON225ER,Large-scale (stable) rain rate for LON225ER,,"[lat, lon]","[month, day]"
+PRECRL_LON235ER,Large-scale (stable) rain rate for LON235ER,,"[lat, lon]","[month, day]"
+PRECRL_LON245ER,Large-scale (stable) rain rate for LON245ER,,"[lat, lon]","[month, day]"
+PRECRL_LON255ER,Large-scale (stable) rain rate for LON255ER,,"[lat, lon]","[month, day]"
+PRECRL_LON25ER,Large-scale (stable) rain rate for LON25ER,,"[lat, lon]","[month, day]"
+PRECRL_LON265ER,Large-scale (stable) rain rate for LON265ER,,"[lat, lon]","[month, day]"
+PRECRL_LON275ER,Large-scale (stable) rain rate for LON275ER,,"[lat, lon]","[month, day]"
+PRECRL_LON285ER,Large-scale (stable) rain rate for LON285ER,,"[lat, lon]","[month, day]"
+PRECRL_LON295ER,Large-scale (stable) rain rate for LON295ER,,"[lat, lon]","[month, day]"
+PRECRL_LON305ER,Large-scale (stable) rain rate for LON305ER,,"[lat, lon]","[month, day]"
+PRECRL_LON315ER,Large-scale (stable) rain rate for LON315ER,,"[lat, lon]","[month, day]"
+PRECRL_LON325ER,Large-scale (stable) rain rate for LON325ER,,"[lat, lon]","[month, day]"
+PRECRL_LON335ER,Large-scale (stable) rain rate for LON335ER,,"[lat, lon]","[month, day]"
+PRECRL_LON345ER,Large-scale (stable) rain rate for LON345ER,,"[lat, lon]","[month, day]"
+PRECRL_LON355ER,Large-scale (stable) rain rate for LON355ER,,"[lat, lon]","[month, day]"
+PRECRL_LON35ER,Large-scale (stable) rain rate for LON35ER,,"[lat, lon]","[month, day]"
+PRECRL_LON45ER,Large-scale (stable) rain rate for LON45ER,,"[lat, lon]","[month, day]"
+PRECRL_LON55ER,Large-scale (stable) rain rate for LON55ER,,"[lat, lon]","[month, day]"
+PRECRL_LON65ER,Large-scale (stable) rain rate for LON65ER,,"[lat, lon]","[month, day]"
+PRECRL_LON75ER,Large-scale (stable) rain rate for LON75ER,,"[lat, lon]","[month, day]"
+PRECRL_LON85ER,Large-scale (stable) rain rate for LON85ER,,"[lat, lon]","[month, day]"
+PRECRL_LON95ER,Large-scale (stable) rain rate for LON95ER,,"[lat, lon]","[month, day]"
+PRECSC,Convective snow rate (water equivalent),,"[lat, lon]",[month]
+PRECSC_H216Os,Convective snow rate (water equivalent) for H216Os,,"[lat, lon]",[month]
+PRECSC_H218Os,Convective snow rate (water equivalent) for H218Os,,"[lat, lon]",[month]
+PRECSC_H2Os,Convective snow rate (water equivalent) for H2Os,,"[lat, lon]",[month]
+PRECSC_HDOs,Convective snow rate (water equivalent) for HDOs,,"[lat, lon]",[month]
+PRECSC_LAT05Ns,Convective snow rate (water equivalent) for LAT05Ns,,"[lat, lon]","[month, day]"
+PRECSC_LAT05Ss,Convective snow rate (water equivalent) for LAT05Ss,,"[lat, lon]","[month, day]"
+PRECSC_LAT15Ns,Convective snow rate (water equivalent) for LAT15Ns,,"[lat, lon]","[month, day]"
+PRECSC_LAT15Ss,Convective snow rate (water equivalent) for LAT15Ss,,"[lat, lon]","[month, day]"
+PRECSC_LAT25Ns,Convective snow rate (water equivalent) for LAT25Ns,,"[lat, lon]","[month, day]"
+PRECSC_LAT25Ss,Convective snow rate (water equivalent) for LAT25Ss,,"[lat, lon]","[month, day]"
+PRECSC_LAT35Ns,Convective snow rate (water equivalent) for LAT35Ns,,"[lat, lon]","[month, day]"
+PRECSC_LAT35Ss,Convective snow rate (water equivalent) for LAT35Ss,,"[lat, lon]","[month, day]"
+PRECSC_LAT45Ns,Convective snow rate (water equivalent) for LAT45Ns,,"[lat, lon]","[month, day]"
+PRECSC_LAT45Ss,Convective snow rate (water equivalent) for LAT45Ss,,"[lat, lon]","[month, day]"
+PRECSC_LAT55Ns,Convective snow rate (water equivalent) for LAT55Ns,,"[lat, lon]","[month, day]"
+PRECSC_LAT55Ss,Convective snow rate (water equivalent) for LAT55Ss,,"[lat, lon]","[month, day]"
+PRECSC_LAT65Ns,Convective snow rate (water equivalent) for LAT65Ns,,"[lat, lon]","[month, day]"
+PRECSC_LAT65Ss,Convective snow rate (water equivalent) for LAT65Ss,,"[lat, lon]","[month, day]"
+PRECSC_LAT75Ns,Convective snow rate (water equivalent) for LAT75Ns,,"[lat, lon]","[month, day]"
+PRECSC_LAT75Ss,Convective snow rate (water equivalent) for LAT75Ss,,"[lat, lon]","[month, day]"
+PRECSC_LAT85Ns,Convective snow rate (water equivalent) for LAT85Ns,,"[lat, lon]","[month, day]"
+PRECSC_LAT85Ss,Convective snow rate (water equivalent) for LAT85Ss,,"[lat, lon]","[month, day]"
+PRECSC_LON05Es,Convective snow rate (water equivalent) for LON05Es,,"[lat, lon]","[month, day]"
+PRECSC_LON105Es,Convective snow rate (water equivalent) for LON105Es,,"[lat, lon]","[month, day]"
+PRECSC_LON115Es,Convective snow rate (water equivalent) for LON115Es,,"[lat, lon]","[month, day]"
+PRECSC_LON125Es,Convective snow rate (water equivalent) for LON125Es,,"[lat, lon]","[month, day]"
+PRECSC_LON135Es,Convective snow rate (water equivalent) for LON135Es,,"[lat, lon]","[month, day]"
+PRECSC_LON145Es,Convective snow rate (water equivalent) for LON145Es,,"[lat, lon]","[month, day]"
+PRECSC_LON155Es,Convective snow rate (water equivalent) for LON155Es,,"[lat, lon]","[month, day]"
+PRECSC_LON15Es,Convective snow rate (water equivalent) for LON15Es,,"[lat, lon]","[month, day]"
+PRECSC_LON165Es,Convective snow rate (water equivalent) for LON165Es,,"[lat, lon]","[month, day]"
+PRECSC_LON175Es,Convective snow rate (water equivalent) for LON175Es,,"[lat, lon]","[month, day]"
+PRECSC_LON185Es,Convective snow rate (water equivalent) for LON185Es,,"[lat, lon]","[month, day]"
+PRECSC_LON195Es,Convective snow rate (water equivalent) for LON195Es,,"[lat, lon]","[month, day]"
+PRECSC_LON205Es,Convective snow rate (water equivalent) for LON205Es,,"[lat, lon]","[month, day]"
+PRECSC_LON215Es,Convective snow rate (water equivalent) for LON215Es,,"[lat, lon]","[month, day]"
+PRECSC_LON225Es,Convective snow rate (water equivalent) for LON225Es,,"[lat, lon]","[month, day]"
+PRECSC_LON235Es,Convective snow rate (water equivalent) for LON235Es,,"[lat, lon]","[month, day]"
+PRECSC_LON245Es,Convective snow rate (water equivalent) for LON245Es,,"[lat, lon]","[month, day]"
+PRECSC_LON255Es,Convective snow rate (water equivalent) for LON255Es,,"[lat, lon]","[month, day]"
+PRECSC_LON25Es,Convective snow rate (water equivalent) for LON25Es,,"[lat, lon]","[month, day]"
+PRECSC_LON265Es,Convective snow rate (water equivalent) for LON265Es,,"[lat, lon]","[month, day]"
+PRECSC_LON275Es,Convective snow rate (water equivalent) for LON275Es,,"[lat, lon]","[month, day]"
+PRECSC_LON285Es,Convective snow rate (water equivalent) for LON285Es,,"[lat, lon]","[month, day]"
+PRECSC_LON295Es,Convective snow rate (water equivalent) for LON295Es,,"[lat, lon]","[month, day]"
+PRECSC_LON305Es,Convective snow rate (water equivalent) for LON305Es,,"[lat, lon]","[month, day]"
+PRECSC_LON315Es,Convective snow rate (water equivalent) for LON315Es,,"[lat, lon]","[month, day]"
+PRECSC_LON325Es,Convective snow rate (water equivalent) for LON325Es,,"[lat, lon]","[month, day]"
+PRECSC_LON335Es,Convective snow rate (water equivalent) for LON335Es,,"[lat, lon]","[month, day]"
+PRECSC_LON345Es,Convective snow rate (water equivalent) for LON345Es,,"[lat, lon]","[month, day]"
+PRECSC_LON355Es,Convective snow rate (water equivalent) for LON355Es,,"[lat, lon]","[month, day]"
+PRECSC_LON35Es,Convective snow rate (water equivalent) for LON35Es,,"[lat, lon]","[month, day]"
+PRECSC_LON45Es,Convective snow rate (water equivalent) for LON45Es,,"[lat, lon]","[month, day]"
+PRECSC_LON55Es,Convective snow rate (water equivalent) for LON55Es,,"[lat, lon]","[month, day]"
+PRECSC_LON65Es,Convective snow rate (water equivalent) for LON65Es,,"[lat, lon]","[month, day]"
+PRECSC_LON75Es,Convective snow rate (water equivalent) for LON75Es,,"[lat, lon]","[month, day]"
+PRECSC_LON85Es,Convective snow rate (water equivalent) for LON85Es,,"[lat, lon]","[month, day]"
+PRECSC_LON95Es,Convective snow rate (water equivalent) for LON95Es,,"[lat, lon]","[month, day]"
+PRECSL,Large-scale (stable) snow rate (water equivalent),,"[lat, lon]",[month]
+PRECSL_H216OS,Large-scale (stable) snow rate (water equivalent) for H216OS,,"[lat, lon]",[month]
+PRECSL_H218OS,Large-scale (stable) snow rate (water equivalent) for H218OS,,"[lat, lon]",[month]
+PRECSL_H2OS,Large-scale (stable) snow rate (water equivalent) for H2OS,,"[lat, lon]",[month]
+PRECSL_HDOS,Large-scale (stable) snow rate (water equivalent) for HDOS,,"[lat, lon]",[month]
+PRECSL_LAT05NS,Large-scale (stable) snow rate (water equivalent) for LAT05NS,,"[lat, lon]","[month, day]"
+PRECSL_LAT05SS,Large-scale (stable) snow rate (water equivalent) for LAT05SS,,"[lat, lon]","[month, day]"
+PRECSL_LAT15NS,Large-scale (stable) snow rate (water equivalent) for LAT15NS,,"[lat, lon]","[month, day]"
+PRECSL_LAT15SS,Large-scale (stable) snow rate (water equivalent) for LAT15SS,,"[lat, lon]","[month, day]"
+PRECSL_LAT25NS,Large-scale (stable) snow rate (water equivalent) for LAT25NS,,"[lat, lon]","[month, day]"
+PRECSL_LAT25SS,Large-scale (stable) snow rate (water equivalent) for LAT25SS,,"[lat, lon]","[month, day]"
+PRECSL_LAT35NS,Large-scale (stable) snow rate (water equivalent) for LAT35NS,,"[lat, lon]","[month, day]"
+PRECSL_LAT35SS,Large-scale (stable) snow rate (water equivalent) for LAT35SS,,"[lat, lon]","[month, day]"
+PRECSL_LAT45NS,Large-scale (stable) snow rate (water equivalent) for LAT45NS,,"[lat, lon]","[month, day]"
+PRECSL_LAT45SS,Large-scale (stable) snow rate (water equivalent) for LAT45SS,,"[lat, lon]","[month, day]"
+PRECSL_LAT55NS,Large-scale (stable) snow rate (water equivalent) for LAT55NS,,"[lat, lon]","[month, day]"
+PRECSL_LAT55SS,Large-scale (stable) snow rate (water equivalent) for LAT55SS,,"[lat, lon]","[month, day]"
+PRECSL_LAT65NS,Large-scale (stable) snow rate (water equivalent) for LAT65NS,,"[lat, lon]","[month, day]"
+PRECSL_LAT65SS,Large-scale (stable) snow rate (water equivalent) for LAT65SS,,"[lat, lon]","[month, day]"
+PRECSL_LAT75NS,Large-scale (stable) snow rate (water equivalent) for LAT75NS,,"[lat, lon]","[month, day]"
+PRECSL_LAT75SS,Large-scale (stable) snow rate (water equivalent) for LAT75SS,,"[lat, lon]","[month, day]"
+PRECSL_LAT85NS,Large-scale (stable) snow rate (water equivalent) for LAT85NS,,"[lat, lon]","[month, day]"
+PRECSL_LAT85SS,Large-scale (stable) snow rate (water equivalent) for LAT85SS,,"[lat, lon]","[month, day]"
+PRECSL_LON05ES,Large-scale (stable) snow rate (water equivalent) for LON05ES,,"[lat, lon]","[month, day]"
+PRECSL_LON105ES,Large-scale (stable) snow rate (water equivalent) for LON105ES,,"[lat, lon]","[month, day]"
+PRECSL_LON115ES,Large-scale (stable) snow rate (water equivalent) for LON115ES,,"[lat, lon]","[month, day]"
+PRECSL_LON125ES,Large-scale (stable) snow rate (water equivalent) for LON125ES,,"[lat, lon]","[month, day]"
+PRECSL_LON135ES,Large-scale (stable) snow rate (water equivalent) for LON135ES,,"[lat, lon]","[month, day]"
+PRECSL_LON145ES,Large-scale (stable) snow rate (water equivalent) for LON145ES,,"[lat, lon]","[month, day]"
+PRECSL_LON155ES,Large-scale (stable) snow rate (water equivalent) for LON155ES,,"[lat, lon]","[month, day]"
+PRECSL_LON15ES,Large-scale (stable) snow rate (water equivalent) for LON15ES,,"[lat, lon]","[month, day]"
+PRECSL_LON165ES,Large-scale (stable) snow rate (water equivalent) for LON165ES,,"[lat, lon]","[month, day]"
+PRECSL_LON175ES,Large-scale (stable) snow rate (water equivalent) for LON175ES,,"[lat, lon]","[month, day]"
+PRECSL_LON185ES,Large-scale (stable) snow rate (water equivalent) for LON185ES,,"[lat, lon]","[month, day]"
+PRECSL_LON195ES,Large-scale (stable) snow rate (water equivalent) for LON195ES,,"[lat, lon]","[month, day]"
+PRECSL_LON205ES,Large-scale (stable) snow rate (water equivalent) for LON205ES,,"[lat, lon]","[month, day]"
+PRECSL_LON215ES,Large-scale (stable) snow rate (water equivalent) for LON215ES,,"[lat, lon]","[month, day]"
+PRECSL_LON225ES,Large-scale (stable) snow rate (water equivalent) for LON225ES,,"[lat, lon]","[month, day]"
+PRECSL_LON235ES,Large-scale (stable) snow rate (water equivalent) for LON235ES,,"[lat, lon]","[month, day]"
+PRECSL_LON245ES,Large-scale (stable) snow rate (water equivalent) for LON245ES,,"[lat, lon]","[month, day]"
+PRECSL_LON255ES,Large-scale (stable) snow rate (water equivalent) for LON255ES,,"[lat, lon]","[month, day]"
+PRECSL_LON25ES,Large-scale (stable) snow rate (water equivalent) for LON25ES,,"[lat, lon]","[month, day]"
+PRECSL_LON265ES,Large-scale (stable) snow rate (water equivalent) for LON265ES,,"[lat, lon]","[month, day]"
+PRECSL_LON275ES,Large-scale (stable) snow rate (water equivalent) for LON275ES,,"[lat, lon]","[month, day]"
+PRECSL_LON285ES,Large-scale (stable) snow rate (water equivalent) for LON285ES,,"[lat, lon]","[month, day]"
+PRECSL_LON295ES,Large-scale (stable) snow rate (water equivalent) for LON295ES,,"[lat, lon]","[month, day]"
+PRECSL_LON305ES,Large-scale (stable) snow rate (water equivalent) for LON305ES,,"[lat, lon]","[month, day]"
+PRECSL_LON315ES,Large-scale (stable) snow rate (water equivalent) for LON315ES,,"[lat, lon]","[month, day]"
+PRECSL_LON325ES,Large-scale (stable) snow rate (water equivalent) for LON325ES,,"[lat, lon]","[month, day]"
+PRECSL_LON335ES,Large-scale (stable) snow rate (water equivalent) for LON335ES,,"[lat, lon]","[month, day]"
+PRECSL_LON345ES,Large-scale (stable) snow rate (water equivalent) for LON345ES,,"[lat, lon]","[month, day]"
+PRECSL_LON355ES,Large-scale (stable) snow rate (water equivalent) for LON355ES,,"[lat, lon]","[month, day]"
+PRECSL_LON35ES,Large-scale (stable) snow rate (water equivalent) for LON35ES,,"[lat, lon]","[month, day]"
+PRECSL_LON45ES,Large-scale (stable) snow rate (water equivalent) for LON45ES,,"[lat, lon]","[month, day]"
+PRECSL_LON55ES,Large-scale (stable) snow rate (water equivalent) for LON55ES,,"[lat, lon]","[month, day]"
+PRECSL_LON65ES,Large-scale (stable) snow rate (water equivalent) for LON65ES,,"[lat, lon]","[month, day]"
+PRECSL_LON75ES,Large-scale (stable) snow rate (water equivalent) for LON75ES,,"[lat, lon]","[month, day]"
+PRECSL_LON85ES,Large-scale (stable) snow rate (water equivalent) for LON85ES,,"[lat, lon]","[month, day]"
+PRECSL_LON95ES,Large-scale (stable) snow rate (water equivalent) for LON95ES,,"[lat, lon]","[month, day]"
+PRECT_H216O,Total (convective and large-scale) precipitation rate (liq + ice) for H216O,,"[lat, lon]",[day]
+PRECT_H218O,Total (convective and large-scale) precipitation rate (liq + ice) for H218O,,"[lat, lon]",[day]
+PRECT_H2O,Total (convective and large-scale) precipitation rate (liq + ice) for H2O,,"[lat, lon]",[day]
+PRECT_HDO,Total (convective and large-scale) precipitation rate (liq + ice) for HDO,,"[lat, lon]",[day]
+PS,Surface pressure,,"[lat, lon]","[month, day]"
+PSL,Sea level pressure,,"[lat, lon]",[month]
+Q,Specific humidity,,"[lat, lon, lev]",[month]
+QFLX,Surface water flux,,"[lat, lon]",[month]
+QFLX_H216O,Surface water flux for H216O,,"[lat, lon]","[month, day]"
+QFLX_H218O,Surface water flux for H218O,,"[lat, lon]","[month, day]"
+QFLX_H2O,Surface water flux for H2O,,"[lat, lon]","[month, day]"
+QFLX_HDO,Surface water flux for HDO,,"[lat, lon]","[month, day]"
+QRL,Longwave heating rate,,"[lat, lon, lev]",[month]
+QRS,Solar heating rate,,"[lat, lon, lev]",[month]
+SHFLX,Surface sensible heat flux,,"[lat, lon]",[month]
+SOLIN,Solar insolation,,"[lat, lon]",[month]
+SWCF,Shortwave cloud forcing,,"[lat, lon]",[month]
+T,Temperature,,"[lat, lon, lev]","[month, day]"
+TMQ,Total (vertically integrated) precipitable water,,"[lat, lon]",[month]
+TREFHT,Reference height temperature,,"[lat, lon]",[month]
+TS,Surface temperature (radiative),,"[lat, lon]",[month]
+U,Zonal wind,,"[lat, lon, lev]","[month, day]"
+V,Meridional wind,,"[lat, lon, lev]","[month, day]"
+WSUB,Diagnostic sub-grid vertical velocity,,"[lat, lon, lev]",[month]
+Z3,Geopotential Height (above sea level),,"[lat, lon, lev]",[month]
