@@ -129,6 +129,10 @@ build_vars_for_experiment() {
     echo "${vars[@]}"
 }
 
+# save script directory
+script_dir=$(pwd)
+echo "Script directory: $script_dir"
+
 echo
 for ((i=1; i<=${#exps_out[@]}; i++)); do
         echo "EXPERIMENT: "${exps_in[i-1]}
@@ -140,7 +144,6 @@ for ((i=1; i<=${#exps_out[@]}; i++)); do
         echo "  Total variables: ${#vars[@]}"
         
         in_dir=${input_directory_root}/${exps_in[i-1]}/cam/${run_frequency}
-        script_dir=$(pwd)
         cd $in_dir
 
         out_dir=${output_directory_root}/${exps_out[i-1]}
