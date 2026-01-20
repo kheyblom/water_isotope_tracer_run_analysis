@@ -1,0 +1,19 @@
+name: icesm_general_analysis
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - numpy
+  - pandas
+  - matplotlib
+  - scipy
+  - xarray
+  - netcdf4
+  - cartopy
+  - cftime
+  - dask
+  - pip
+  - jupyter
+  - pip:
+      - tqdm
