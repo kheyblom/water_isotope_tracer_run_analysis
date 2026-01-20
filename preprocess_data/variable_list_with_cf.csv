@@ -1,18 +1,18 @@
 variable name,long name,CF convention,dimensions,output frequency
-AEROD_v,Total Aerosol Optical Depth in visible band,atmosphere_optical_thickness_due_to_aerosol,"[lat, lon]",[month]
-ANRAIN,Average rain number conc,number_concentration_of_rain_particles_in_air,"[lat, lon, lev]",[month]
-ANSNOW,Average snow number conc,number_concentration_of_snow_particles_in_air,"[lat, lon, lev]",[month]
-AREI,Average ice effective radius,effective_radius_of_cloud_ice_particles,"[lat, lon, lev]",[month]
-AREL,Average droplet effective radius,effective_radius_of_cloud_liquid_water_particles,"[lat, lon, lev]",[month]
+AEROD_v,Total Aerosol Optical Depth in visible band,atmosphere_optical_thickness_due_to_ambient_aerosol_particles,"[lat, lon]",[month]
+ANRAIN,Average rain number conc,,"[lat, lon, lev]",[month]
+ANSNOW,Average snow number conc,snowfall_flux,"[lat, lon, lev]",[month]
+AREI,Average ice effective radius,effective_radius_of_stratiform_cloud_ice_particle,"[lat, lon, lev]",[month]
+AREL,Average droplet effective radius,effective_radius_of_stratiform_cloud_liquid_water_particle,"[lat, lon, lev]",[month]
 AWNC,Average cloud water number conc,number_concentration_of_cloud_liquid_water_particles_in_air,"[lat, lon, lev]",[month]
-AWNI,Average cloud ice number conc,number_concentration_of_cloud_ice_particles_in_air,"[lat, lon, lev]",[month]
+AWNI,Average cloud ice number conc,number_concentration_of_ice_crystals_in_air,"[lat, lon, lev]",[month]
 CLDHGH,Vertically-integrated high cloud,cloud_area_fraction_in_atmosphere_layer,"[lat, lon]",[month]
 CLDLOW,Vertically-integrated low cloud,cloud_area_fraction_in_atmosphere_layer,"[lat, lon]",[month]
 CLDMED,Vertically-integrated mid-level cloud,cloud_area_fraction_in_atmosphere_layer,"[lat, lon]",[month]
 CLDTOT,Vertically-integrated total cloud,cloud_area_fraction,"[lat, lon]",[month]
 CLOUD,Cloud fraction,cloud_area_fraction_in_atmosphere_layer,"[lat, lon, lev]",[month]
-DCQ,Q tendency due to moist processes,tendency_of_specific_humidity_due_to_moist_processes,"[lat, lon, lev]",[month]
-DTCOND,T tendency - moist processes,tendency_of_air_temperature_due_to_moist_processes,"[lat, lon, lev]",[month]
+DCQ,Q tendency due to moist processes,,"[lat, lon, lev]",[month]
+DTCOND,T tendency - moist processes,,"[lat, lon, lev]",[month]
 FLDS,Downwelling longwave flux at surface,surface_downwelling_longwave_flux_in_air,"[lat, lon]",[month]
 FLNS,Net longwave flux at surface,surface_net_downward_longwave_flux,"[lat, lon]",[month]
 FLNSC,Clearsky net longwave flux at surface,surface_net_downward_longwave_flux_assuming_clear_sky,"[lat, lon]",[month]
@@ -25,100 +25,100 @@ FSDSC,Clearsky downwelling solar flux at surface,surface_downwelling_shortwave_f
 FSNS,Net solar flux at surface,surface_net_downward_shortwave_flux,"[lat, lon]",[month]
 FSNSC,Clearsky net solar flux at surface,surface_net_downward_shortwave_flux_assuming_clear_sky,"[lat, lon]",[month]
 FSNT,Net solar flux at top of model,toa_net_upward_shortwave_flux,"[lat, lon]",[month]
-FSNTC,Clearsky net solar flux at top of model,toa_net_upward_shortwave_flux_assuming_clear_sky,"[lat, lon]",[month]
+FSNTC,Clearsky net solar flux at top of model,toa_outgoing_shortwave_flux_assuming_clear_sky,"[lat, lon]",[month]
 FSNTOA,Net solar flux at top of atmosphere,toa_net_upward_shortwave_flux,"[lat, lon]",[month]
-FSNTOAC,Clearsky net solar flux at top of atmosphere,toa_net_upward_shortwave_flux_assuming_clear_sky,"[lat, lon]",[month]
+FSNTOAC,Clearsky net solar flux at top of atmosphere,toa_outgoing_shortwave_flux_assuming_clear_sky,"[lat, lon]",[month]
 FSUTOA,Upwelling solar flux at top of atmosphere,toa_outgoing_shortwave_flux,"[lat, lon]",[month]
 H216OI,H216O isotope mmr for ICE,mass_fraction_of_cloud_ice_in_air,"[lat, lon, lev]",[month]
 H216OL,H216O isotope mmr for LIQUID,mass_fraction_of_cloud_liquid_water_in_air,"[lat, lon, lev]",[month]
 H216OR,H216O isotope mmr for RAINS,precipitation_flux,"[lat, lon, lev]",[month]
 H216OS,H216O isotope mmr for SNOWS,snowfall_flux,"[lat, lon, lev]",[month]
-H216OV,H216O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
+H216OV,H216O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
 H216Or,H216O isotope mmr for RAINC,precipitation_flux,"[lat, lon, lev]",[month]
 H216Os,H216O isotope mmr for SNOWC,snowfall_flux,"[lat, lon, lev]",[month]
 H218OI,H218O isotope mmr for ICE,mass_fraction_of_cloud_ice_in_air,"[lat, lon, lev]",[month]
 H218OL,H218O isotope mmr for LIQUID,mass_fraction_of_cloud_liquid_water_in_air,"[lat, lon, lev]",[month]
 H218OR,H218O isotope mmr for RAINS,precipitation_flux,"[lat, lon, lev]",[month]
 H218OS,H218O isotope mmr for SNOWS,snowfall_flux,"[lat, lon, lev]",[month]
-H218OV,H218O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
+H218OV,H218O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
 H218Or,H218O isotope mmr for RAINC,precipitation_flux,"[lat, lon, lev]",[month]
 H218Os,H218O isotope mmr for SNOWC,snowfall_flux,"[lat, lon, lev]",[month]
 H2OI,H2O isotope mmr for ICE,mass_fraction_of_cloud_ice_in_air,"[lat, lon, lev]",[month]
 H2OL,H2O isotope mmr for LIQUID,mass_fraction_of_cloud_liquid_water_in_air,"[lat, lon, lev]",[month]
 H2OR,H2O isotope mmr for RAINS,precipitation_flux,"[lat, lon, lev]",[month]
 H2OS,H2O isotope mmr for SNOWS,snowfall_flux,"[lat, lon, lev]",[month]
-H2OV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
+H2OV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
 H2Or,H2O isotope mmr for RAINC,precipitation_flux,"[lat, lon, lev]",[month]
 H2Os,H2O isotope mmr for SNOWC,snowfall_flux,"[lat, lon, lev]",[month]
 HDOI,HD16O isotope mmr for ICE,mass_fraction_of_cloud_ice_in_air,"[lat, lon, lev]",[month]
 HDOL,HD16O isotope mmr for LIQUID,mass_fraction_of_cloud_liquid_water_in_air,"[lat, lon, lev]",[month]
 HDOR,HD16O isotope mmr for RAINS,precipitation_flux,"[lat, lon, lev]",[month]
 HDOS,HD16O isotope mmr for SNOWS,snowfall_flux,"[lat, lon, lev]",[month]
-HDOV,HD16O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
+HDOV,HD16O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
 HDOr,HD16O isotope mmr for RAINC,precipitation_flux,"[lat, lon, lev]",[month]
 HDOs,HD16O isotope mmr for SNOWC,snowfall_flux,"[lat, lon, lev]",[month]
 ICEFRAC,Fraction of sfc area covered by sea-ice,sea_ice_area_fraction,"[lat, lon]",[month]
 LANDFRAC,Fraction of sfc area covered by land,land_area_fraction,"[lat, lon]",[month]
-LAT05NV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LAT05SV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LAT15NV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LAT15SV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LAT25NV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LAT25SV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LAT35NV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LAT35SV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LAT45NV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LAT45SV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LAT55NV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LAT55SV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LAT65NV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LAT65SV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LAT75NV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LAT75SV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LAT85NV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LAT85SV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
+LAT05NV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LAT05SV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LAT15NV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LAT15SV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LAT25NV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LAT25SV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LAT35NV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LAT35SV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LAT45NV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LAT45SV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LAT55NV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LAT55SV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LAT65NV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LAT65SV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LAT75NV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LAT75SV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LAT85NV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LAT85SV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
 LHFLX,Surface latent heat flux,surface_upward_latent_heat_flux,"[lat, lon]",[month]
-LON05EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON105EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON115EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON125EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON135EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON145EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON155EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON15EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON165EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON175EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON185EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON195EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON205EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON215EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON225EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON235EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON245EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON255EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON25EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON265EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON275EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON285EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON295EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON305EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON315EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON325EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON335EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON345EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON355EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON35EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON45EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON55EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON65EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON75EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON85EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LON95EV,H2O isotope mmr for VAPOR,mass_fraction_of_water_vapor_in_air,"[lat, lon, lev]","[month, day]"
-LWCF,Longwave cloud forcing,toa_longwave_cloud_forcing,"[lat, lon]",[month]
+LON05EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON105EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON115EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON125EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON135EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON145EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON155EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON15EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON165EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON175EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON185EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON195EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON205EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON215EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON225EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON235EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON245EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON255EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON25EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON265EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON275EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON285EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON295EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON305EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON315EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON325EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON335EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON345EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON355EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON35EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON45EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON55EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON65EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON75EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON85EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LON95EV,H2O isotope mmr for VAPOR,specific_humidity,"[lat, lon, lev]","[month, day]"
+LWCF,Longwave cloud forcing,toa_longwave_cloud_radiative_effect,"[lat, lon]",[month]
 OMEGA,Vertical velocity (pressure),lagrangian_tendency_of_air_pressure,"[lat, lon, lev]","[month, day]"
 PBLH,PBL height,atmosphere_boundary_layer_thickness,"[lat, lon]",[month]
 PRECC,Convective precipitation rate (liq + ice),convective_precipitation_flux,"[lat, lon]",[month]
-PRECL,Large-scale (stable) precipitation rate (liq + ice),large_scale_precipitation_flux,"[lat, lon]",[month]
+PRECL,Large-scale (stable) precipitation rate (liq + ice),stratiform_precipitation_flux,"[lat, lon]",[month]
 PRECRC_H216Or,Convective rain rate for H216Or,precipitation_flux,"[lat, lon]",[month]
 PRECRC_H218Or,Convective rain rate for H218Or,precipitation_flux,"[lat, lon]",[month]
 PRECRC_H2Or,Convective rain rate for H2Or,precipitation_flux,"[lat, lon]",[month]
@@ -294,7 +294,7 @@ PRECSC_LON65Es,Convective snow rate (water equivalent) for LON65Es,snowfall_flux
 PRECSC_LON75Es,Convective snow rate (water equivalent) for LON75Es,snowfall_flux,"[lat, lon]","[month, day]"
 PRECSC_LON85Es,Convective snow rate (water equivalent) for LON85Es,snowfall_flux,"[lat, lon]","[month, day]"
 PRECSC_LON95Es,Convective snow rate (water equivalent) for LON95Es,snowfall_flux,"[lat, lon]","[month, day]"
-PRECSL,Large-scale (stable) snow rate (water equivalent),large_scale_snowfall_flux,"[lat, lon]",[month]
+PRECSL,Large-scale (stable) snow rate (water equivalent),stratiform_snowfall_flux,"[lat, lon]",[month]
 PRECSL_H216OS,Large-scale (stable) snow rate (water equivalent) for H216OS,snowfall_flux,"[lat, lon]",[month]
 PRECSL_H218OS,Large-scale (stable) snow rate (water equivalent) for H218OS,snowfall_flux,"[lat, lon]",[month]
 PRECSL_H2OS,Large-scale (stable) snow rate (water equivalent) for H2OS,snowfall_flux,"[lat, lon]",[month]
@@ -369,7 +369,7 @@ QRL,Longwave heating rate,tendency_of_air_temperature_due_to_longwave_heating,"[
 QRS,Solar heating rate,tendency_of_air_temperature_due_to_shortwave_heating,"[lat, lon, lev]",[month]
 SHFLX,Surface sensible heat flux,surface_upward_sensible_heat_flux,"[lat, lon]",[month]
 SOLIN,Solar insolation,toa_incoming_shortwave_flux,"[lat, lon]",[month]
-SWCF,Shortwave cloud forcing,toa_shortwave_cloud_forcing,"[lat, lon]",[month]
+SWCF,Shortwave cloud forcing,toa_shortwave_cloud_radiative_effect,"[lat, lon]",[month]
 T,Temperature,air_temperature,"[lat, lon, lev]","[month, day]"
 TMQ,Total (vertically integrated) precipitable water,atmosphere_mass_content_of_water_vapor,"[lat, lon]",[month]
 TREFHT,Reference height temperature,air_temperature,"[lat, lon]",[month]
