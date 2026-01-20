@@ -1,5 +1,8 @@
 #!/bin/bash 
 
+# Redirect all output to pulldata.log
+exec > >(tee -a pulldata.log) 2>&1
+
 echo "Script started at $(date)"
 echo "Hostname: $(hostname)"
 echo $(hostname) > pulldata.hostname
