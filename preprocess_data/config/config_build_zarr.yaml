@@ -1,0 +1,23 @@
+directory_root: /glade/u/home/kheyblom/scratch/icesm_data/processed/
+log_file: logs/build_zarr.log
+frequencies:
+  - mon
+  - day
+experiments:
+  - iso-piControl-tag
+  - iso-historical_r1
+  - iso-historical_r2
+  - iso-historical_r4
+  - iso-historical_r4-tag-a
+  - iso-historical_r4-tag-b
+  - iso-historical_r5
+  - iso-historical_r5-tag-a
+  - iso-historical_r5-tag-b
+  - iso-rcp85_r1
+  - iso-rcp85_r2
+  - iso-rcp85_r4
+  - iso-rcp85_r4-tag-b
+  - iso-rcp85_r4-tag-c
+  - iso-rcp85_r5
+  - iso-rcp85_r5-tag-b
+  - iso-rcp85_r5-tag-c
