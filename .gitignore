@@ -8,3 +8,5 @@ venv/
 *.log
 *.pid
 *.hostname
+
+*_draft.ipynb
